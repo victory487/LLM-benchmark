@@ -1,0 +1,6 @@
+{
+  "extra_body": {
+    "repetition_penalty": 1.05,
+    "top_k": -1
+  }
+}

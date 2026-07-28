@@ -194,5 +194,17 @@ pyrightconfig.json
 eval/data/test_data.h5
 eval/inspect_ai/outputs/
 eval/inspect_ai/tmp/
+eval/inspect_ai/tmp_*/
 .venv/
 .env
+
+# Observation dumps and local score outputs (do not commit)
+observations_*
+scicode_*_eval_results.jsonl
+scicode_*_score_summary.json
+scicode_*_timeout_retest.json
+scicode_*_quality_samples.json
+scicode_syntax*.json
+scicode_unmatched_*.json
+scicode_from_observations*.jsonl
+scicode_from_observations*.README.md
