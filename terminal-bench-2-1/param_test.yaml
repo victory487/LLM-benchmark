@@ -1,0 +1,28 @@
+job_name: param_test_v3
+n_attempts: 3
+n_concurrent_trials: 4
+agents:
+  - name: terminus-2
+    model_name: hosted_vllm/sce397b_nex-ornith_topk100
+    override_timeout_sec: 7200
+    kwargs:
+      api_base: http://10.0.3.38:8000/v1
+      temperature: 1.0
+      top_p: 0.95
+      top_k: -1
+      repetition_penalty: 1.05
+      max_tokens: 102400
+      model_info:
+        max_input_tokens: 262144
+        max_output_tokens: 102400
+        input_cost_per_token: 0
+        output_cost_per_token: 0
+      max_turns: 250
+      interleaved_thinking: true
+    env:
+      GIT_PAGER: cat
+datasets:
+  - name: terminal-bench/terminal-bench-2-1
+    version: "6"
+environment:
+  type: docker
