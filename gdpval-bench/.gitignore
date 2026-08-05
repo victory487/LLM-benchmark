@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.log
+*_results.json
+.cache/
+tasks/*/cand_*/
+tasks/*/render_*/
+tasks/*/sb/

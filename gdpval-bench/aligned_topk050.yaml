@@ -1,0 +1,28 @@
+# Backup: previous topk050 candidate config.
+# 用法：
+#   ./.venv/bin/python gen_aligned.py --config aligned_topk050.yaml
+
+tasks_file: config.json
+
+candidate:
+  model: sce397b_nex-ornith_topk050
+  base_url: http://10.0.3.57:8000/v1
+  api_key: "x"
+
+gen:
+  n_samples: 3
+  workers: 12
+  max_turns: 22
+  max_tokens: 48000
+
+judge:
+  model: gpt-5.5
+  base_url: https://agrouter-ng-test.kiwiar.com/v1
+  api_key: sk-bfU2MvaVuZ0jW7wB53qJKw
+  n_samples: 3
+  workers: 4
+  max_pages: 12
+  results_file: judge_aligned_{model}_results.json
+
+round1:
+  results_file: round1_{model}_results.json

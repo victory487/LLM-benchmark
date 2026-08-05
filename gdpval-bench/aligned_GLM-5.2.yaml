@@ -1,0 +1,43 @@
+# AA-aligned GDPval：GLM-5.2（一模型一配置）
+# 用法：
+#   ./.venv/bin/python gen_aligned.py --model GLM-5.2
+#   ./.venv/bin/python gen_aligned.py --config aligned_GLM-5.2.yaml
+#   ./.venv/bin/python judge_aligned_gpt55.py --model GLM-5.2
+#
+# 隔离：产物 tasks/*/cand_GLM-5.2_aligned/ ；结果 judge_aligned_GLM-5.2_results.json
+#
+# 测试集切换（二选一）：
+#   config.json          — 原版 220 题（需 Brave 跑全量）
+#   config_no_brave.json — 去掉 14 个强依赖 web_search 的题，剩 206 题
+
+tasks_file: config_no_brave.json
+
+candidate:
+  model: GLM-5.2
+  base_url: http://10.0.3.33:5001/v1
+  api_key: "x"
+
+# Brave 月额度已用尽；有新 key 再填，并把 tasks_file 改回 config.json。
+brave_api_key: ""
+
+gen:
+  n_samples: 3
+  workers: 12
+  max_turns: 22
+  max_tokens: 48000
+  # GLM-5.2 官方推荐
+  temperature: 0.6
+  top_p: 0.95
+  repetition_penalty: 1.0
+
+judge:
+  model: gpt-5.5
+  base_url: https://agrouter-ng-test.kiwiar.com/v1
+  api_key: sk-bfU2MvaVuZ0jW7wB53qJKw
+  n_samples: 3
+  workers: 4
+  max_pages: 12
+  results_file: judge_aligned_{model}_results.json
+
+round1:
+  results_file: round1_{model}_results.json

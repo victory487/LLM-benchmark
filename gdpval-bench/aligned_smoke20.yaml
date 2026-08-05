@@ -1,0 +1,27 @@
+# 20-task smoke test for agnes-2.5-flash-fp8-v3.1 (1 sample/task)
+tasks_file: config_smoke20.json
+
+candidate:
+  model: agnes-2.5-flash-fp8-v3.1
+  base_url: http://10.0.3.34:30084/v1
+  api_key: "x"
+
+brave_api_key: BSAsiTLW16zG8PxTQrLp9i7pcRfdBOO
+
+gen:
+  n_samples: 1
+  workers: 6
+  max_turns: 22
+  max_tokens: 48000
+
+judge:
+  model: gpt-5.5
+  base_url: https://agrouter-ng-test.kiwiar.com/v1
+  api_key: sk-bfU2MvaVuZ0jW7wB53qJKw
+  n_samples: 1
+  workers: 2
+  max_pages: 12
+  results_file: judge_smoke20_{model}_results.json
+
+round1:
+  results_file: round1_smoke20_{model}_results.json

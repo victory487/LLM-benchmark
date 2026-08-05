@@ -14,6 +14,7 @@
 | [`scicode`](./scicode) | SciCode | 科研代码生成与求解 | [README](./scicode/README.md) |
 | [`swebench`](./swebench) | SWE-bench | 真实软件仓库缺陷修复 | [swebench-kit](./swebench/swebench-kit/README.md) |
 | [`terminal-bench-2-1`](./terminal-bench-2-1) | Terminal-Bench 2.1 | 终端 / 容器内复杂任务 | [README](./terminal-bench-2-1/README.md) |
+| [`gdpval-bench`](./gdpval-bench) | GDPval (AA-aligned) | 经济价值职业任务 agent 评测（生成 + judge） | [README](./gdpval-bench/README.md) |
 
 ## 仓库结构
 
@@ -26,6 +27,7 @@ LLM-benchmark/
 ├── swebench/                # SWE-bench 评测脚本与工具链
 │   └── swebench-kit/        # 共享评测台（配置驱动管线）
 ├── terminal-bench-2-1/      # Terminal-Bench 2.1 任务集
+├── gdpval-bench/            # GDPval AA-aligned 评测
 ├── LICENSE                  # 根目录 Apache-2.0
 └── README.md
 ```
@@ -128,6 +130,18 @@ uv tool install harbor
 
 详情见 [`terminal-bench-2-1/README.md`](./terminal-bench-2-1/README.md)。
 
+### GDPval-bench
+
+OpenAI GDPval gold 子集的 AA-aligned 评测脚手架（Stirrup 生成 + 多模态 judge）：
+
+```bash
+cd gdpval-bench
+uv sync
+# 见 gdpval-bench/README.md
+```
+
+详情见 [`gdpval-bench/README.md`](./gdpval-bench/README.md)。
+
 ## 来源与致谢
 
 本仓库整合了多个开源评测项目，原始工作归属于各自作者与机构。使用或发表结果时，请同时引用对应上游论文 / 仓库 / 数据集：
@@ -140,6 +154,7 @@ uv tool install harbor
 | SWE-bench | [swebench.com](https://www.swebench.com/) · [princeton-nlp/SWE-bench](https://github.com/princeton-nlp/SWE-bench) |
 | Terminal-Bench | [tbench.ai](https://www.tbench.ai) · [Leaderboard 2.1](https://www.tbench.ai/leaderboard/terminal-bench/2.1) |
 | LLM Eval | 见 [`llm-eval/README.md`](./llm-eval/README.md) 中各数据集链接（AIME26 / GPQA / NL2Repo 等） |
+| GDPval | [HF openai/gdpval](https://huggingface.co/datasets/openai/gdpval) · [AA methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking/) · [Stirrup](https://github.com/ArtificialAnalysis/Stirrup) |
 
 ## License
 
